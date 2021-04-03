@@ -36,6 +36,7 @@ textarea {
   border-top: 1px solid white;
 }
 
+/* Used for hour in first column */
 .hour {
   background-color: #ffffff;
   color: #000000;
@@ -52,11 +53,13 @@ textarea {
   color: white;
 }
 
+/* Used as .addClass("future") */
 .future {
   background-color: #77dd77;
   color: white;
 }
 
+/* Used as .addClass("saveBtn saveBtn i:hover") */
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
