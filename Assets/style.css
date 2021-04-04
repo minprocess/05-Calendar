@@ -75,23 +75,20 @@ textarea {
 
 .container {
   display: grid;
-  border: 3px solid yellowgreen;
+  /*border: 3px solid yellowgreen;*/
   min-height: 100vh;
   grid-template-columns: 1fr 6fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .grid-item-left {
-
   border: 3px solid sandybrown;;
 }
 
 .grid-item-mid {
-
   border: 3px solid sandybrown;;
 }
 
 .grid-item-right {
-
   border: 3px solid sandybrown;;
 }
