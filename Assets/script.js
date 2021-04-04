@@ -22,7 +22,6 @@
         for (var i=9; i<18; i++) {
             var iDivL = document.createElement('div');
             iDivL.id = 'grid-item-left-'+i;
-            console.log(iDivL.id);
             iDivL.className = 'grid-item-left';
             $('#'+iDivL.id).addClass( "hour" );
             $('#'+iDivL.id).addClass( "time-block" )
@@ -31,20 +30,17 @@
         
             var iDivM = document.createElement('textarea');
             iDivM.id = 'grid-item-mid-'+i;
-            console.log(iDivM.id);
             iDivM.className = 'grid-item-mid';
             $('#'+iDivM.id).addClass('textarea');
-
             firstDiv.appendChild(iDivM);
             $('#'+iDivM.id).addClass( bgColorFromHour() );
 
             // Save buttons
             var iDivR = document.createElement('button');
             iDivR.id = 'grid-item-right-'+i;
-            console.log(iDivR.id);
-            iDivR.className = 'grid-item-right';
+            //iDivR.className = 'grid-item-right';
             $('#'+iDivR.id).addClass("saveBtn");
-            //$('#'+iDivR.id).addClass("saveBtn i:hover");
+            $('#'+iDivR.id).addClass("saveBtn i:hover");
             iDivR.setAttribute("data-index", i-9);
 
             firstDiv.appendChild(iDivR);

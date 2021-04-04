@@ -64,7 +64,7 @@ textarea {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06afd5;
+  background-color: #06aed5;
   color: white;
 }
 
@@ -81,14 +81,3 @@ textarea {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-.grid-item-left {
-  border: 3px solid sandybrown;;
-}
-
-.grid-item-mid {
-  border: 3px solid sandybrown;;
-}
-
-.grid-item-right {
-  border: 3px solid sandybrown;;
-}
