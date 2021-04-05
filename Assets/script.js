@@ -1,7 +1,7 @@
     var eventsStored;  // Events for each hour stored in array. Saved to and read from localStorage
     var x;
     var currHourPrevious;
-    var test = false;
+    var test = false;   // If true then currHour is set to 11 am.
     var testtime = "Sun., Apr. 4 2021, 11:42 am";
 
     function setAttributes() {
