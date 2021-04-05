@@ -5,6 +5,8 @@
     var testtime = "Sun., Apr. 4 2021, 11:42 am";
 
     function setAttributes() {
+        currHourPrevious = getCurrHour();
+
         var firstDiv = document.getElementById('first-div');
 
         eventsStored = JSON.parse(localStorage.getItem("eventsStored") || "[]");
