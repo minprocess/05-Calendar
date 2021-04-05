@@ -171,7 +171,6 @@
     // Called every 60 seconds
     // At 9 am exactly the events from previous day are erased
     function onTimer() {
-        console.log("Start onTimer()");
         SetDisplayTime();
         var currHour = getCurrHour();
         if (currHour > currHourPrevious) {
@@ -188,5 +187,5 @@
     console.log(m.hour());
     console.log(m);
     setAttributes();
-    x = setInterval(onTimer(), 60000);
+    x = setInterval(onTimer, 60000);
   
