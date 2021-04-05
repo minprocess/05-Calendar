@@ -33,13 +33,13 @@
             firstDiv.appendChild(iDivM);
             $('#'+iDivM.id).addClass('textarea');
             $('#'+iDivM.id).addClass( bgColorFromHour() );
+            $('#'+iDivM.id).addClass('row');
 
             // Save buttons
             var iDivR = document.createElement('button');
             iDivR.id = 'grid-item-right-'+i;
             //iDivR.className = 'grid-item-right';
             firstDiv.appendChild(iDivR);
-
             $('#'+iDivR.id).addClass("saveBtn");
             $('#'+iDivR.id).addClass("saveBtn i:hover");
             iDivR.setAttribute("data-index", i-9);
