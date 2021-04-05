@@ -83,3 +83,7 @@ textarea {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
+.hack {
+  margin-left: 270px;
+}
+

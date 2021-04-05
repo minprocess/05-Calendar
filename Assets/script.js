@@ -1,6 +1,8 @@
     var eventsStored;  // Events for each hour stored in array. Saved to and read from localStorage
     var x;
     var currHourPrevious;
+    var test = false;
+    var testtime = "Sun., Apr. 4 2021, 11:42 am";
 
     function setAttributes() {
         var firstDiv = document.getElementById('first-div');
@@ -13,11 +15,16 @@
             }
         }
 
-        var today = moment().format("ddd, MMM D YYYY, h:mm a")
-        var datetimeEl = document.querySelector("#clock");
-        datetimeEl.textContent = today;
-
         const currHour = getCurrHour();
+        if (currHour < 9 || currHour > 17) {
+            for (var i=0; i<9; i++) {
+                eventsStored[i] = "";
+            }
+            localStorage.setItem("eventsStored", JSON.stringify(eventsStored));
+        }
+
+        SetDisplayTime();
+
         // Create left grid column for hour, middle grid column for event and right grid column for save buttons
         for (var i=9; i<18; i++) {
             var iDivL = document.createElement('div');
@@ -71,11 +78,20 @@
             var eventEl = document.querySelector(cellId);
             eventEl.value = eventsStored[i-9];
         }   // end of loop that fills table with stored events
+
+        var hourEl3 = document.querySelector("#grid-item-left-9");
+        var y = $(hourEl3).offset();
+        var msg1El3 = document.querySelector("#msg1");
+        $(msg1El3).offset({left: y.left});
+        var msg2El3 = document.querySelector("#clock");
+        $(msg2El3).offset({left: y.left});
     }    // end of setAtributes
 
     function getCurrHour() {
         var currHour = moment().hour();
-        currHour = 11;
+        if (test) {
+            currHour = 11;
+        }
         return currHour;
     }
 
@@ -83,7 +99,7 @@
         for (var i=9; i<18; i++) {
             cellId = '#grid-item-mid-'+i;
             var eventEl = document.querySelector(cellId);
-            eventEl.textConent = "";
+            eventEl.textContent = "";
             eventsStored[i-9] = "";
         }
     }
@@ -131,25 +147,29 @@
     // Save events to local storage when the user clicks the save event button
     function btnClickHandler(e) {
         var i = $(this).attr("data-index");
-        console.log("btnClickHandler index: ", i)
         var j = parseInt(i)+9;
         var cellId = '#grid-item-mid-'+j;
-        console.log("In btnClickHandler cellId ",  cellId);
         var eventEl = document.querySelector(cellId);
 
-        console.log("In btClickHandler( ) eventEl.value", eventEl.value);
         eventsStored[i] = eventEl.value;
-
         localStorage.setItem("eventsStored", JSON.stringify(eventsStored));
+    }
+
+    function SetDisplayTime() {
+        var datetimeEl = document.querySelector("#clock");
+        if (test) {
+            datetimeEl.textContent = testtime;
+        }
+        else {
+            var today = moment().format("ddd., MMM. D YYYY, h:mm a");
+            datetimeEl.textContent = today;
+        }
     }
 
     // Called every 60 seconds
     // At 9 am exactly the events from previous day are erased
     function onTimer() {
-        var today = moment().format("ddd, MMM D YYYY, h:m a")
-        var datetimeEl = document.querySelector("#clock");
-        datetimeEl.textContent = today;
-
+        SetDisplayTime();
         var currHour = getCurrHour();
         if (currHour > currHourPrevious) {
             currHourPrevious = currHour;
