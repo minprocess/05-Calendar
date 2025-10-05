@@ -10,7 +10,6 @@
         var firstDiv = document.getElementById('first-div');
 
         eventsStored = JSON.parse(localStorage.getItem("eventsStored") || "[]");
-        console.log("setAttributes eventsStored.length", eventsStored.length);
         if (eventsStored.length == 0) {
             for (var i=0; i<9; i++) {
                 eventsStored[i] = "";
@@ -111,19 +110,14 @@
             cellId = '#grid-item-mid-'+i;
             var eventEl = document.querySelector(cellId);
             var classShouldBe = bgColorFromHour(i);  // 'past', 'present', 'future'
-            console.log("setEventBackground classShouldBe: ", classShouldBe);
             if (!eventEl.classList.contains(classShouldBe)) {
-                console.log("setEventBackground eventEl.classList", eventEl.classList);
                 if (eventEl.classList.contains("past")) {
-                    console.log("setEventBackground remove past");
                     $(eventEl).removeClass("past");
                 }
                 else if (eventEl.classList.contains("present")) {
-                    console.log("setEventBackground remove present");
                     $(eventEl).removeClass("present");
                 }
                 else if (eventEl.classList.contains("future")) {
-                    console.log("setEventBackground remove future");
                     $(eventEl).removeClass("future");
                 }
             }
